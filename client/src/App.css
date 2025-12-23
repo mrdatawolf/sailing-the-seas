@@ -1,0 +1,949 @@
+/* Game Container */
+.game-container {
+  padding-top: 140px; /* Space for fixed header */
+}
+
+.game-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #2a2a2a;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  z-index: 900;
+  border-bottom: 2px solid #646cff;
+}
+
+.header-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #444;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.game-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.reset-button {
+  background-color: #dc3545;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+}
+
+.reset-button:hover {
+  background-color: #c82333;
+}
+
+/* Player Status Bar */
+.player-status-bar {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.status-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.status-label {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.status-value {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.status-value.money {
+  color: #ffd700;
+}
+
+.status-value.lawful {
+  color: #28a745;
+}
+
+.status-value.pirate {
+  color: #dc3545;
+}
+
+/* Player Creation */
+.player-creation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.creation-content {
+  max-width: 600px;
+  text-align: center;
+}
+
+.intro {
+  font-size: 1.1rem;
+  margin: 2rem 0;
+  color: #888;
+}
+
+.creation-form {
+  text-align: left;
+  margin-top: 3rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 2px solid #646cff;
+  border-radius: 4px;
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.starting-info {
+  background-color: #2a2a2a;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1.5rem 0;
+}
+
+.starting-info h3 {
+  margin-top: 0;
+}
+
+.starting-info ul {
+  text-align: left;
+  margin: 0.5rem 0;
+}
+
+/* Game Content */
+.game-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Port Screen */
+.port-screen {
+  text-align: left;
+}
+
+.port-info {
+  color: #888;
+  margin-bottom: 2rem;
+}
+
+.player-info, .fleet-info, .market, .travel-section {
+  margin-bottom: 2rem;
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.ship {
+  padding: 0.5rem;
+  background-color: #1a1a1a;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+}
+
+/* Market Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #444;
+}
+
+th {
+  background-color: #1a1a1a;
+  font-weight: bold;
+}
+
+td button {
+  margin-right: 0.5rem;
+}
+
+.category-luxury { color: #ffd700; }
+.category-contraband { color: #dc3545; }
+.category-staple { color: #888; }
+
+/* Travel Screen */
+.travel-screen {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.travel-confirmation, .travel-result {
+  background-color: #2a2a2a;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.voyage-info {
+  margin: 1.5rem 0;
+}
+
+.ship-status {
+  padding: 0.5rem;
+  background-color: #1a1a1a;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+}
+
+.travel-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.route {
+  font-size: 1.5rem;
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+
+.event-result {
+  background-color: #1a1a1a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.event-message {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
+
+.event-message.major {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.event-message.minor {
+  color: #ffc107;
+}
+
+.event-effects {
+  margin-top: 1rem;
+}
+
+.event-effects ul {
+  list-style: none;
+  padding: 0;
+}
+
+.event-effects li {
+  padding: 0.5rem;
+  background-color: #2a2a2a;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+}
+
+.no-event {
+  color: #28a745;
+  font-size: 1.1rem;
+}
+
+.arrival {
+  font-size: 1.2rem;
+  color: #28a745;
+  margin-top: 1rem;
+}
+
+.blocked-warning {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+/* Destinations */
+.destinations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.travel-button {
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Buttons */
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #646cff;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+button:hover:not(:disabled) {
+  background-color: #535bf2;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.primary-button {
+  background-color: #28a745;
+}
+
+.primary-button:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+/* Alerts */
+.error {
+  background-color: #dc3545;
+  color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+.success {
+  background-color: #28a745;
+  color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+/* Loading */
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+
+/* Fleet Sidebar */
+.fleet-toggle, .travel-toggle {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #646cff;
+  border: 3px solid #2a2a2a;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.fleet-toggle {
+  left: 1rem;
+}
+
+.travel-toggle {
+  right: 1rem;
+}
+
+.fleet-toggle:hover, .travel-toggle:hover {
+  background-color: #535bf2;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.fleet-icon, .travel-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.fleet-count, .travel-count {
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+.fleet-sidebar, .travel-sidebar {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 350px;
+  background-color: #1a1a1a;
+  box-shadow: 4px 0 16px rgba(0,0,0,0.5);
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.fleet-sidebar {
+  left: 0;
+}
+
+.travel-sidebar {
+  right: 0;
+  transform: translateX(100%);
+}
+
+.fleet-sidebar.open {
+  transform: translateX(0);
+}
+
+.travel-sidebar.open {
+  transform: translateX(0);
+}
+
+.fleet-sidebar-header, .travel-sidebar-header {
+  position: sticky;
+  top: 0;
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-bottom: 2px solid #646cff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.fleet-sidebar-header h2, .travel-sidebar-header h2 {
+  margin: 0;
+}
+
+.close-button {
+  background: transparent;
+  border: none;
+  color: #888;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  line-height: 1;
+}
+
+.close-button:hover {
+  color: white;
+  background: transparent;
+}
+
+.fleet-sidebar-content, .travel-sidebar-content {
+  padding: 1.5rem;
+}
+
+/* Fleet Ship Cards */
+.fleet-ship-card {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #444;
+}
+
+.fleet-ship-card h3 {
+  margin: 0 0 0.5rem 0;
+  color: #646cff;
+}
+
+.ship-type {
+  color: #888;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  margin-bottom: 1rem;
+}
+
+.ship-stats {
+  margin-top: 1rem;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #333;
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.stat-label {
+  color: #888;
+}
+
+.stat-value {
+  font-weight: bold;
+}
+
+.stat-value.danger {
+  color: #dc3545;
+}
+
+.ship-upgrades {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #444;
+}
+
+.upgrades-label {
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.upgrade {
+  display: inline-block;
+  background-color: #646cff;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Travel Sidebar */
+.current-location {
+  background-color: #2a2a2a;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 2px solid #646cff;
+}
+
+.location-label {
+  color: #888;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.location-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #646cff;
+}
+
+.destinations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.no-destinations {
+  color: #888;
+  text-align: center;
+  padding: 2rem;
+}
+
+.destination-card {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 2px solid #444;
+  transition: border-color 0.2s;
+}
+
+.destination-card:hover {
+  border-color: #646cff;
+}
+
+.destination-header h3 {
+  margin: 0 0 1rem 0;
+  color: white;
+}
+
+.destination-info {
+  margin-bottom: 1rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4rem 0;
+  font-size: 0.9rem;
+}
+
+.info-label {
+  color: #888;
+}
+
+.info-value {
+  font-weight: bold;
+}
+
+.sail-button {
+  width: 100%;
+  background-color: #28a745;
+  padding: 0.75rem;
+}
+
+.sail-button:hover {
+  background-color: #218838;
+}
+
+/* Overlays */
+.fleet-overlay, .travel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 998;
+}
+
+/* Port Screen Three-Column Layout */
+.port-screen-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr 300px;
+  gap: 1.5rem;
+  align-items: start;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.left-panel, .right-panel {
+  position: sticky;
+  top: 160px;
+}
+
+.center-panel {
+  min-width: 0;
+}
+
+/* Port Info Panel */
+.port-info-panel {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 2px solid #444;
+}
+
+.port-info-panel h3 {
+  margin: 0 0 1.5rem 0;
+  color: #646cff;
+  border-bottom: 2px solid #444;
+  padding-bottom: 0.75rem;
+}
+
+.info-section {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #333;
+}
+
+.info-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.info-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.info-content {
+  flex: 1;
+}
+
+.info-label {
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-text {
+  font-size: 0.9rem;
+  color: #ddd;
+  line-height: 1.4;
+}
+
+/* Fleet Visualization */
+.fleet-visualization {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 2px solid #444;
+}
+
+.fleet-visualization h3 {
+  margin: 0 0 1rem 0;
+  color: #646cff;
+  border-bottom: 2px solid #444;
+  padding-bottom: 0.75rem;
+}
+
+.harbor-scene {
+  position: relative;
+  min-height: 300px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.harbor-background {
+  position: absolute;
+  inset: 0;
+}
+
+.harbor-sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, #87CEEB 0%, #B0D8F0 100%);
+}
+
+.harbor-water {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to bottom, #4A90E2 0%, #2E5C8A 100%);
+}
+
+.harbor-dock {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: #654321;
+  border-top: 3px solid #8B6914;
+}
+
+.ships-container {
+  position: relative;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 280px;
+}
+
+/* Pixel Art Ships */
+.pixel-ship {
+  position: relative;
+  animation: bobbing 3s ease-in-out infinite;
+}
+
+@keyframes bobbing {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.ship-pixel-art {
+  position: relative;
+  width: 60px;
+  height: 80px;
+}
+
+.ship-sails {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sail {
+  width: 30px;
+  height: 35px;
+  background: linear-gradient(to right, #f5f5f5 0%, #ddd 100%);
+  margin-bottom: 5px;
+  border: 2px solid #999;
+  border-radius: 0 50% 0 0;
+  box-shadow: inset -2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.ship-hull {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hull-body {
+  width: 50px;
+  height: 25px;
+  background: linear-gradient(to bottom, #8B4513 0%, #654321 100%);
+  border: 2px solid #3E2723;
+  border-radius: 0 0 25px 25px;
+}
+
+.hull-deck {
+  width: 45px;
+  height: 8px;
+  background: #A0522D;
+  border: 2px solid #654321;
+  margin: -2px auto 0;
+}
+
+.ship-hull.damaged .hull-body {
+  background: linear-gradient(to bottom, #654321 0%, #3E2723 100%);
+}
+
+.ship-hull.critical .hull-body {
+  background: linear-gradient(to bottom, #3E2723 0%, #1A0F0A 100%);
+  animation: damage-flash 1s ease-in-out infinite;
+}
+
+@keyframes damage-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.ship-waves {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+}
+
+.wave {
+  width: 12px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: wave-motion 2s ease-in-out infinite;
+}
+
+.wave:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.wave:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes wave-motion {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.1); }
+}
+
+.ship-name-tag {
+  text-align: center;
+  font-size: 0.7rem;
+  color: #fff;
+  margin-top: 0.5rem;
+  background: rgba(0,0,0,0.5);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.ship-status-indicator {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1.5rem;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+.fleet-summary {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #333;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.summary-label {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.summary-value {
+  color: #646cff;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .port-screen-layout {
+    grid-template-columns: 250px 1fr 250px;
+  }
+}
+
+@media (max-width: 992px) {
+  .port-screen-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .left-panel, .right-panel {
+    position: relative;
+    top: auto;
+  }
+}

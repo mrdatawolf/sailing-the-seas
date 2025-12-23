@@ -1,0 +1,471 @@
+/* Quartermaster Panel Styles */
+
+.quartermaster-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, #2c1810 0%, #1a0f08 100%);
+  border-top: 3px solid #8b6914;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  transition: transform 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+.quartermaster-panel.collapsed {
+  height: 60px;
+}
+
+.quartermaster-panel.expanded {
+  height: 50vh;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+/* Toggle Bar */
+.qm-toggle-bar {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  cursor: pointer;
+  user-select: none;
+  background: linear-gradient(to right, #3d2817 0%, #2c1810 50%, #3d2817 100%);
+  border-bottom: 1px solid #8b6914;
+}
+
+.qm-toggle-bar:hover {
+  background: linear-gradient(to right, #4a3320 0%, #3d2817 50%, #4a3320 100%);
+}
+
+.qm-toggle-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.qm-toggle-icon {
+  font-size: 24px;
+}
+
+.qm-toggle-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f4e4c1;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.qm-quick-stats {
+  display: flex;
+  gap: 30px;
+  margin-left: auto;
+  margin-right: 20px;
+  font-size: 14px;
+  color: #d4c4a1;
+}
+
+.qm-quick-stat {
+  display: flex;
+  gap: 5px;
+}
+
+.qm-quick-stat strong {
+  color: #f4e4c1;
+}
+
+.qm-quick-stat .profit {
+  color: #4caf50;
+}
+
+.qm-quick-stat .loss {
+  color: #f44336;
+}
+
+.qm-toggle-arrow {
+  font-size: 20px;
+  color: #8b6914;
+  margin-left: auto;
+}
+
+/* Panel Content */
+.qm-panel-content {
+  height: calc(100% - 60px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Tabs */
+.qm-tabs {
+  display: flex;
+  gap: 0;
+  background: #1a0f08;
+  border-bottom: 2px solid #8b6914;
+  padding: 0 20px;
+}
+
+.qm-tab {
+  padding: 12px 24px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #a89968;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.qm-tab:hover {
+  color: #f4e4c1;
+  background: rgba(139, 105, 20, 0.1);
+}
+
+.qm-tab.active {
+  color: #f4e4c1;
+  border-bottom-color: #8b6914;
+  background: rgba(139, 105, 20, 0.2);
+}
+
+/* Tab Content */
+.qm-tab-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  background: linear-gradient(to bottom, #2c1810 0%, #1a0f08 100%);
+}
+
+/* Table Header */
+.qm-table-header {
+  margin-bottom: 20px;
+}
+
+.qm-table-header h3 {
+  margin: 0 0 5px 0;
+  color: #f4e4c1;
+  font-size: 22px;
+}
+
+.qm-subtitle {
+  margin: 0;
+  color: #a89968;
+  font-size: 14px;
+}
+
+/* Statistics Cards */
+.qm-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.qm-stat-card {
+  background: rgba(61, 40, 23, 0.6);
+  border: 1px solid #8b6914;
+  border-radius: 6px;
+  padding: 12px 16px;
+  text-align: center;
+}
+
+.qm-stat-label {
+  font-size: 12px;
+  color: #a89968;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.qm-stat-value {
+  font-size: 20px;
+  font-weight: bold;
+  color: #f4e4c1;
+}
+
+.qm-stat-value.profit {
+  color: #4caf50;
+}
+
+.qm-stat-value.loss {
+  color: #f44336;
+}
+
+/* Table Styles */
+.qm-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid #8b6914;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.qm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.qm-table thead {
+  background: linear-gradient(to bottom, #3d2817 0%, #2c1810 100%);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.qm-table th {
+  padding: 12px 16px;
+  text-align: left;
+  color: #f4e4c1;
+  font-weight: 600;
+  border-bottom: 2px solid #8b6914;
+  white-space: nowrap;
+}
+
+.qm-table tbody tr {
+  border-bottom: 1px solid rgba(139, 105, 20, 0.2);
+  transition: background 0.2s;
+}
+
+.qm-table tbody tr:hover {
+  background: rgba(139, 105, 20, 0.15);
+}
+
+.qm-table td {
+  padding: 10px 16px;
+  color: #d4c4a1;
+}
+
+.qm-table .qm-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #a89968;
+  font-style: italic;
+}
+
+/* Good Category Tags */
+.good-category {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.good-category.luxury { background: #9c27b0; color: white; }
+.good-category.staple { background: #795548; color: white; }
+.good-category.contraband { background: #f44336; color: white; }
+.good-category.precious { background: #ffc107; color: black; }
+.good-category.spice { background: #ff9800; color: white; }
+.good-category.textile { background: #2196f3; color: white; }
+
+.good-category-tag {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+/* Trade Type Badges */
+.trade-type {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.trade-type.buy {
+  background: #2196f3;
+  color: white;
+}
+
+.trade-type.sell {
+  background: #4caf50;
+  color: white;
+}
+
+/* Event Badges */
+.event-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.event-badge.storm {
+  background: #607d8b;
+  color: white;
+}
+
+.event-badge.pirates {
+  background: #f44336;
+  color: white;
+}
+
+.event-badge.merchant {
+  background: #4caf50;
+  color: white;
+}
+
+.event-badge.patrol {
+  background: #2196f3;
+  color: white;
+}
+
+.event-badge.safe {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+  border: 1px solid #4caf50;
+}
+
+/* Price and Money Formatting */
+.qm-price {
+  font-family: 'Courier New', monospace;
+  color: #ffc107;
+}
+
+.qm-total.buy {
+  color: #f44336;
+  font-weight: 600;
+}
+
+.qm-total.sell {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.qm-date {
+  font-size: 12px;
+  color: #a89968;
+}
+
+/* Voyage Specific Styles */
+.voyage-row {
+  cursor: pointer;
+}
+
+.voyage-row.has-event {
+  background: rgba(139, 105, 20, 0.05);
+}
+
+.voyage-route {
+  font-weight: 600;
+  color: #f4e4c1;
+}
+
+.voyage-row .damage {
+  color: #f44336;
+  font-weight: 600;
+}
+
+.voyage-row .profit {
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.voyage-row .loss {
+  color: #f44336;
+  font-weight: 600;
+}
+
+.expand-btn {
+  text-align: center;
+  color: #8b6914;
+  font-size: 12px;
+}
+
+.voyage-details td {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.event-description {
+  color: #d4c4a1;
+  line-height: 1.6;
+}
+
+.event-description strong {
+  color: #f4e4c1;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.event-description p {
+  margin: 0;
+  padding-left: 10px;
+  border-left: 3px solid #8b6914;
+}
+
+/* Loading and Error States */
+.qm-loading,
+.qm-error {
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.qm-loading {
+  color: #a89968;
+}
+
+.qm-error {
+  color: #f44336;
+  background: rgba(244, 67, 54, 0.1);
+  border: 1px solid #f44336;
+  border-radius: 6px;
+}
+
+/* Scrollbar Styling */
+.qm-tab-content::-webkit-scrollbar,
+.qm-table-wrapper::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.qm-tab-content::-webkit-scrollbar-track,
+.qm-table-wrapper::-webkit-scrollbar-track {
+  background: #1a0f08;
+}
+
+.qm-tab-content::-webkit-scrollbar-thumb,
+.qm-table-wrapper::-webkit-scrollbar-thumb {
+  background: #8b6914;
+  border-radius: 5px;
+}
+
+.qm-tab-content::-webkit-scrollbar-thumb:hover,
+.qm-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #a88a1a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .qm-quick-stats {
+    display: none;
+  }
+
+  .qm-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .qm-table {
+    font-size: 12px;
+  }
+
+  .qm-table th,
+  .qm-table td {
+    padding: 8px 10px;
+  }
+
+  .quartermaster-panel.expanded {
+    height: 60vh;
+    max-height: none;
+  }
+}
