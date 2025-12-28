@@ -4,7 +4,10 @@
       "Bash(npm create:*)",
       "Bash(npm install:*)",
       "Bash(npm init:*)",
-      "Bash(test:*)"
+      "Bash(test:*)",
+      "Bash(npm test:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)"
     ]
   }
 }

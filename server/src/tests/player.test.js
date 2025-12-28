@@ -21,7 +21,7 @@ describe('Player API', () => {
       const response = await request(app)
         .post('/api/player/create')
         .send({ name: 'Captain Jack' })
-        .expect(200);
+        .expect(201);
 
       expect(response.body).toHaveProperty('player');
       expect(response.body).toHaveProperty('ships');
@@ -44,7 +44,7 @@ describe('Player API', () => {
       const response = await request(app)
         .post('/api/player/create')
         .send({ name: 'New Trader' })
-        .expect(200);
+        .expect(201);
 
       const canton = db.prepare('SELECT id FROM ports WHERE name = ?').get('Canton');
       expect(response.body.player.current_port_id).toBe(canton.id);
@@ -66,8 +66,10 @@ describe('Player API', () => {
       expect(response.body).toHaveProperty('player');
       expect(response.body).toHaveProperty('ships');
       expect(response.body).toHaveProperty('cargo');
-      expect(response.body).toHaveProperty('current_port');
+      expect(response.body).toHaveProperty('totalCargoUsed');
+      expect(response.body).toHaveProperty('totalCargoCapacity');
       expect(response.body.player.id).toBe(testPlayerId);
+      expect(response.body.player).toHaveProperty('current_port_name');
     });
 
     it('should return 404 for non-existent player', async () => {

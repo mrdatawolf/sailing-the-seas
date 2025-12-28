@@ -23,6 +23,21 @@ describe('Trade API', () => {
   });
 
   describe('POST /api/trade/buy', () => {
+    beforeEach(() => {
+      // Reset player money to 1000 before each buy test
+      db.get().prepare('UPDATE players SET money = 1000 WHERE id = ?').run(testPlayerId);
+
+      // Clear player cargo to avoid cargo capacity issues
+      db.get().prepare('DELETE FROM player_cargo WHERE player_id = ?').run(testPlayerId);
+
+      // Reset port stock to ensure sufficient inventory
+      const canton = testPorts.find(p => p.name === 'Canton');
+      testGoods.forEach(good => {
+        db.get().prepare('UPDATE port_goods SET stock = 1000 WHERE port_id = ? AND good_id = ?')
+          .run(canton.id, good.id);
+      });
+    });
+
     it('should successfully buy goods when conditions are met', async () => {
       const teaId = testGoods.find(g => g.name === 'Tea').id;
 
@@ -151,9 +166,15 @@ describe('Trade API', () => {
 
   describe('POST /api/trade/sell', () => {
     beforeEach(async () => {
+      // Reset player money to 1000
+      db.get().prepare('UPDATE players SET money = 1000 WHERE id = ?').run(testPlayerId);
+
+      // Clear existing cargo
+      db.get().prepare('DELETE FROM player_cargo WHERE player_id = ?').run(testPlayerId);
+
       // Ensure player has some goods to sell
       const teaId = testGoods.find(g => g.name === 'Tea').id;
-      db.prepare('INSERT OR REPLACE INTO player_cargo (player_id, good_id, quantity) VALUES (?, ?, ?)')
+      db.get().prepare('INSERT INTO player_cargo (player_id, good_id, quantity) VALUES (?, ?, ?)')
         .run(testPlayerId, teaId, 50);
     });
 

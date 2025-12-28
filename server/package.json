@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "test": "cross-env NODE_ENV=test jest --runInBand",
+    "test": "cross-env NODE_ENV=test jest --runInBand --forceExit",
     "test:watch": "cross-env NODE_ENV=test jest --watch --runInBand",
-    "test:coverage": "cross-env NODE_ENV=test jest --coverage --runInBand"
+    "test:coverage": "cross-env NODE_ENV=test jest --coverage --runInBand --forceExit"
   },
   "jest": {
     "testEnvironment": "node",
