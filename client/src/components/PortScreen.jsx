@@ -4,25 +4,42 @@ import { tradeAPI } from '../services/api';
 import PortInfoPanel from './PortInfoPanel';
 import FleetVisualization from './FleetVisualization';
 import QuartermasterPanel from './QuartermasterPanel';
+import BuyGoodModal from './BuyGoodModal';
+import SellGoodModal from './SellGoodModal';
 
 export default function PortScreen({ onTravel }) {
   const { playerState, currentPort, refreshGameState, allPorts } = useGame();
   const [tradeError, setTradeError] = useState(null);
   const [tradeSuccess, setTradeSuccess] = useState(null);
+  const [buyModalItem, setBuyModalItem] = useState(null);
+  const [sellModalItem, setSellModalItem] = useState(null);
 
   if (!playerState || !currentPort) {
     return <div>Loading port information...</div>;
   }
 
-  const handleBuy = async (goodId, goodName) => {
-    const quantity = prompt(`How many units of ${goodName} do you want to buy?`);
-    if (!quantity || isNaN(quantity) || quantity <= 0) return;
+  const openBuyModal = (item) => {
+    setBuyModalItem(item);
+  };
 
+  const closeBuyModal = () => {
+    setBuyModalItem(null);
+  };
+
+  const openSellModal = (item) => {
+    setSellModalItem(item);
+  };
+
+  const closeSellModal = () => {
+    setSellModalItem(null);
+  };
+
+  const handleBuy = async (goodId, goodName, quantity) => {
     setTradeError(null);
     setTradeSuccess(null);
 
     try {
-      const result = await tradeAPI.buy(playerState.player.id, goodId, parseInt(quantity));
+      const result = await tradeAPI.buy(playerState.player.id, goodId, quantity);
       setTradeSuccess(`Bought ${quantity} ${goodName} for ${result.transaction.total_cost.toFixed(2)} silver`);
       await refreshGameState();
     } catch (err) {
@@ -30,15 +47,12 @@ export default function PortScreen({ onTravel }) {
     }
   };
 
-  const handleSell = async (goodId, goodName) => {
-    const quantity = prompt(`How many units of ${goodName} do you want to sell?`);
-    if (!quantity || isNaN(quantity) || quantity <= 0) return;
-
+  const handleSell = async (goodId, goodName, quantity) => {
     setTradeError(null);
     setTradeSuccess(null);
 
     try {
-      const result = await tradeAPI.sell(playerState.player.id, goodId, parseInt(quantity));
+      const result = await tradeAPI.sell(playerState.player.id, goodId, quantity);
       setTradeSuccess(`Sold ${quantity} ${goodName} for ${result.transaction.total_revenue.toFixed(2)} silver`);
       await refreshGameState();
     } catch (err) {
@@ -94,13 +108,13 @@ export default function PortScreen({ onTravel }) {
                 <td>{getCargoQuantity(item.good_id)}</td>
                 <td>
                   <button
-                    onClick={() => handleBuy(item.good_id, item.good_name)}
+                    onClick={() => openBuyModal(item)}
                     disabled={item.stock === 0}
                   >
                     Buy
                   </button>
                   <button
-                    onClick={() => handleSell(item.good_id, item.good_name)}
+                    onClick={() => openSellModal(item)}
                     disabled={getCargoQuantity(item.good_id) === 0}
                   >
                     Sell
@@ -120,6 +134,24 @@ export default function PortScreen({ onTravel }) {
 
       {/* Quartermaster Panel - bottom collapsible panel */}
       <QuartermasterPanel />
+
+      {/* Buy Modal */}
+      {buyModalItem && (
+        <BuyGoodModal
+          item={buyModalItem}
+          onClose={closeBuyModal}
+          onBuy={handleBuy}
+        />
+      )}
+
+      {/* Sell Modal */}
+      {sellModalItem && (
+        <SellGoodModal
+          item={sellModalItem}
+          onClose={closeSellModal}
+          onSell={handleSell}
+        />
+      )}
     </div>
   );
 }

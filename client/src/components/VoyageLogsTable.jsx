@@ -1,9 +1,10 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { quartermasterAPI } from '../services/api';
-import { GameContext } from '../context/GameContext';
+import { useGame } from '../context/GameContext';
 
 function VoyageLogsTable() {
-  const { player } = useContext(GameContext);
+  const { playerState } = useGame();
+  const player = playerState?.player;
   const [voyages, setVoyages] = useState([]);
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);

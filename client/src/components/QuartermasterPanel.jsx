@@ -1,5 +1,5 @@
-import { useState, useEffect, useContext } from 'react';
-import { GameContext } from '../context/GameContext';
+import { useState, useEffect } from 'react';
+import { useGame } from '../context/GameContext';
 import { quartermasterAPI } from '../services/api';
 import PriceHistoryTable from './PriceHistoryTable';
 import TradeJournalTable from './TradeJournalTable';
@@ -7,7 +7,8 @@ import VoyageLogsTable from './VoyageLogsTable';
 import './QuartermasterPanel.css';
 
 function QuartermasterPanel() {
-  const { player } = useContext(GameContext);
+  const { playerState } = useGame();
+  const player = playerState?.player;
   const [isExpanded, setIsExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState('trade-journal');
   const [quickStats, setQuickStats] = useState({
