@@ -79,6 +79,37 @@ All API endpoints are available at `http://localhost:3001/api`
 ### Travel
 - `POST /api/travel` - Travel to destination port
 
+### Quartermaster
+- `GET /api/quartermaster/price-history` - Get historical price data
+- `GET /api/quartermaster/trade-journal/:playerId` - Get player's trade history
+- `GET /api/quartermaster/voyage-logs/:playerId` - Get player's voyage history
+
+## Testing
+
+The backend includes a comprehensive test suite covering all API endpoints.
+
+### Running Tests
+
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with coverage report
+npm run test:coverage
+```
+
+Test coverage includes:
+- Player API (6 tests)
+- Ports API (8 tests)
+- Trade API (14 tests)
+- Travel API (8 tests)
+- Quartermaster API (18 tests)
+
+All tests use an isolated test database and include proper cleanup.
+
 ## Technology Stack
 
 **Frontend:**

@@ -1,0 +1,59 @@
+/* Sell modal uses same base styles as buy modal but with revenue theme */
+.sell-modal .total-revenue {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(139, 105, 20, 0.2);
+  border: 2px solid #d4af37;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.sell-modal .total-revenue.error {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: #ef4444;
+}
+
+.sell-modal .total-revenue span:first-child {
+  color: #c9a962;
+  font-weight: bold;
+}
+
+.sell-modal .total-revenue .amount {
+  color: #d4af37;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.sell-modal .total-revenue.error .amount {
+  color: #ef4444;
+}
+
+.sell-button {
+  background: linear-gradient(135deg, #d4af37 0%, #8b6914 100%);
+  color: #1a0f08;
+}
+
+.sell-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #8b6914 0%, #6b5410 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+.sell-button:disabled {
+  background: rgba(100, 100, 100, 0.3);
+  color: rgba(255, 255, 255, 0.3);
+  cursor: not-allowed;
+  border: 1px solid rgba(100, 100, 100, 0.5);
+}
+
+.info-message {
+  padding: 0.75rem;
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid #3b82f6;
+  border-radius: 4px;
+  color: #93c5fd;
+  text-align: center;
+  margin-bottom: 1rem;
+}
